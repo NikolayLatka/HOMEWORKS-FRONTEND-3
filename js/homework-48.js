@@ -65,7 +65,7 @@ const findLongestWord = function (string) {
 
 findLongestWord("Happy Valentine's Day!!!");
 
-console.log(findLongestWord("Happy Valentine's Day!!!"));
+// console.log(findLongestWord("Happy Valentine's Day!!!"));
 
 // Завдання 4
 // Напиши функцію formatString(string) яка приймає рядок і форматує його якщо необхідно.
@@ -115,27 +115,36 @@ const checkForSpam = function (message) {
 //     Після того як користувач припинив введення натиснувши Cancel, якщо масив не порожній,
 //      необхідно порахувати суму всіх елементів масиву і записати її в змінну total.Використовуй цикл for або for...of.
 //       Після чого в консоль виведи рядок 'Загальна сума чисел дорівнює [сума]'.
-// let input;
-// const numbers = [];
-// let total = 0;
-// while (input !== null) {
-//   input = prompt("Введіть число");
-//   // console.log(input);
-//   // 1. Зберегти число в масив numbers
-//   if (input !== null) {
-//     numbers.push(input);
-//   }
-//   // console.log(numbers);
-// }
+
+let numbers = [];
+let total = 0;
+
+while (true) {
+  let input = prompt("Введіть число (натисніть Cancel для завершення)");
+
+  // 1. Зберегти число в масив numbers
+
+  if (input === null) {
+    break;
+  }
+  let number = Number(input);
+  if (!isNaN(number)) {
+    numbers.push(number);
+  } else {
+    alert("Будь ласка, введіть коректне число!");
+  }
+}
 
 // 2. Коли зупиниться дія циклу While необхідно порахувати суму всіх елементів масиву і записати її в змінну total.Використовуй цикл for або for...of.
 
-// if (numbers.length > 0) {
-//   for (const number of numbers) {
-//     total += number;
-//   }
-// }
+if (numbers.length > 0) {
+  for (let num of numbers) {
+    total += num;
+  }
 
-// 3.  Після чого в консоль виведи рядок 'Загальна сума чисел дорівнює [сума]'.
+  // 3.  Після чого в консоль виведи рядок 'Загальна сума чисел дорівнює [сума]'.
 
-// console.log(`Загальна сума чисел дорівнює ${total}`);
+  console.log(`Загальна сума чисел дорівнює ${total}`);
+} else {
+  console.log("Ви не ввели жодного числа.");
+}
